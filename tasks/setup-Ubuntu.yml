@@ -1,0 +1,6 @@
+---
+- name: Enable OpenResty repo
+  apt_repository: repo="deb http://openresty.org/package/ubuntu {{ ansible_lsb.codename }} main"
+
+- name: Install OpenResty package
+  apt: name=openresty

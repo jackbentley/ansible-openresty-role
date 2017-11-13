@@ -1,0 +1,10 @@
+---
+- name: Enable wheezy backports repo
+  apt_repository: repo="deb http://ftp.debian.org/debian wheezy-backports main"
+  when: ansible_distribution_release == 'wheezy'
+
+- name: Enable OpenResty repo
+  apt_repository: repo="deb http://openresty.org/package/debian {{ ansible_lsb.codename }} openresty"
+
+- name: Install OpenResty package
+  apt: name=openresty
